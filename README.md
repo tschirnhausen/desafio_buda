@@ -11,4 +11,4 @@ The instructions of the solved problem correspond to [Task 1](https://budapuntoc
 3. pytest 7.2.0
 
 # Running tests
-Tests are located at `tests` folder. Regular usage should be `pytest tests/test.py --log-cli-level=10`.
+Tests are located at `tests` folder. Regular usage should be `pytest tests/<test_filename>.py --log-cli-level=10`.

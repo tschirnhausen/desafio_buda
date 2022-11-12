@@ -1,6 +1,5 @@
-import math
 from buda import buda
-from typing import List, Optional, Tuple
+from typing import List, Tuple
 
 
 class InvalidRequest(Exception):
@@ -62,7 +61,7 @@ def get_all_markets_spread() -> List[dict]:
     Since the markets to be queried are obtained directly from the API, the check to see if it is a valid market is omitted.
     """
     available_markets: List[str] = [market.split('-') for market in get_all_markets()]
-    
+
     return [
         get_market_spread(
             currency=market_data[0],
