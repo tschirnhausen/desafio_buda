@@ -3,14 +3,14 @@ from typing import Iterable
 import sdk
 
 class Buda(sdk.BaseSDK):
-    '''
+    """
         Main Buda SDK class
         Implement the endpoints required for the challenge.
 
         Usage for public API: Buda().get_data()
         Note: This challenge doesn't require the private keys
 
-    '''
+    """
 
     NAME: str = 'BUDA'
     VERSION: int = 2
@@ -29,6 +29,7 @@ class Buda(sdk.BaseSDK):
         self.api_key = api_key
         self.api_secret = api_secret
 
+
     def buda_endpoint(
         self,
         method: str,
@@ -39,7 +40,9 @@ class Buda(sdk.BaseSDK):
         query_params: dict = None,
         success_codes: Iterable = None
     ) -> dict:
-        ''' Generic Buda endpoint '''
+        """
+        Generic Buda endpoint
+        """
 
         return self.json_endpoint(
             method=method,
@@ -54,6 +57,24 @@ class Buda(sdk.BaseSDK):
 
     
     def get_markets(self) -> schemas.Markets:
+        """
+        This method queries the list of markets in the endpoint 'markets/' and returns a schema of type Markets
+        with a list of markets of type Market.
+
+        Market
+
+        Attribute            | Type               | Description
+
+        id	                 | [string]	          | Market identifier
+        name	             | [string]	          | Name of the market which corresponds to the market_id
+        base_currency	     | [string]	          | Currency of exchange
+        quote_currency	     | [string]	          | Currency of payment
+        minimum_order_amount | [amount, currency] | Minimum order size accepted
+        taker_fee	         | [amount]	          | Fee paid for a taker order
+        maker_fee	         | [amount]	          | Fee paid for a maker order
+        
+        """
+
         markets_data: dict = self.buda_endpoint(
             method='get',
             url='markets'
@@ -84,6 +105,22 @@ class Buda(sdk.BaseSDK):
 
 
     def get_ticker(self, currency: str, market: str) -> schemas.Ticker:
+        """
+        This method queries the endpoint markets/{currency}-{market}/ticker for a market and returns a schema of type
+        Ticker with the following information:
+
+        Ticker
+
+        Attribute           |  Type    | Description
+
+        last_price          | [float]  | Last price of the currency in the current market
+        market_id           | [string] | Market name with format {currency}-{market} 
+        max_bid             | [float]  | Current maximum bid in the market
+        min_ask             | [float]  | Current minimum ask in the market
+        price_variation_24h | [float]  | Percentage of variation in the period)
+        price_variation_7d  | [float]  | Percentage of variation in the period
+        """
+
         ticker_data: dict = self.buda_endpoint(
             method='get',
             url=f'markets/{currency}-{market}/ticker'

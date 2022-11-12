@@ -1,5 +1,5 @@
 ## Desafío Buda
-![Passed Tests](https://img.shields.io/badge/tests-2%20passed%2C%200%20failed-brightgreen)
+![Passed Tests](https://img.shields.io/badge/tests-10%20passed%2C%200%20failed-brightgreen)
 
 # Introducción
 Solution developed in Python3.8 by the applicant Javier Valenzuela for the Buda challenge.
@@ -11,4 +11,4 @@ The instructions of the solved problem correspond to [Task 1](https://budapuntoc
 3. pytest 7.2.0
 
 # Running tests
-Tests are located at `tests` folder. Regular usage should be `pytest tests/test.py --log-cli-level=10`.
+Tests are located at `tests` folder. Regular usage should be `pytest tests/<test_filename>.py --log-cli-level=10`.
