@@ -29,6 +29,7 @@ class Buda(sdk.BaseSDK):
         self.api_key = api_key
         self.api_secret = api_secret
 
+
     def buda_endpoint(
         self,
         method: str,
