@@ -1,13 +1,8 @@
 import json
 import requests
-import hmac
-import hashlib
-import base64
 import logging
 
 from typing import Iterable
-
-from Crypto.Cipher import AES
 
 app_logger = logging.getLogger('app')
 
