@@ -1,5 +1,5 @@
 ## Desafío Buda
-![Passed Tests](https://img.shields.io/badge/tests-2%20passed%2C%200%20failed-brightgreen)
+![Passed Tests](https://img.shields.io/badge/tests-10%20passed%2C%200%20failed-brightgreen)
 
 # Introducción
 Solution developed in Python3.8 by the applicant Javier Valenzuela for the Buda challenge.

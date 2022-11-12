@@ -3,7 +3,7 @@ from typing import List, Tuple
 
 
 class InvalidRequest(Exception):
-    ''' The request cannot be made because the payload has an invalid format '''
+    """ The request cannot be made because the payload has an invalid format """
     pass
 
 
