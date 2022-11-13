@@ -4,11 +4,11 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-requests = "*"
-pytest = "*"
-fastapi = "*"
-sqlalchemy = "*"
-sqlalchemy-utils = "*"
+requests = "==2.28.1"
+pytest = "==7.2.0"
+fastapi = "==0.86.0"
+sqlalchemy = "==1.4.44"
+sqlalchemy-utils = "==0.38.3"
 
 [dev-packages]
 

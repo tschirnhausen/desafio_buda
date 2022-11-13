@@ -7,13 +7,13 @@ The instructions of the solved problem correspond to [Task 1](https://budapuntoc
 ## Setup
 
 ### Requirements
-1. Python 3.8.10
-2. Pip
-3. Pipenv
-4. requests 2.28.1
-5. pytest 7.2.0
-6. fastapi
-7. uvicorn
+1. Python >= 3.8.10
+2. Pip >= 20.0.2
+3. Pipenv >= 11.9.0
+4. requests >= 2.28.1
+5. pytest >= 7.2.0
+6. fastapi >= 0.86.0
+7. uvicorn >= 0.19.0
 
 ### Running tests
 Tests are located at `tests` folder. Regular usage should be `pytest tests/<test_filename>.py --log-cli-level=10`.
