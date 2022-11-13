@@ -1,6 +1,6 @@
 from buda import schemas, exceptions, constants
 from typing import Iterable
-import sdk
+import api.sdk as sdk
 
 class Buda(sdk.BaseSDK):
     """

@@ -1,12 +1,13 @@
 from fastapi import FastAPI, Depends, HTTPException
-from api import models, schemas
+from api.schemas import Alert
+from api.models import Base
 from api.services import InvalidRequest
 from sqlalchemy.orm import Session
 from database import SessionLocal, engine
 
 import api.services as services
 
-models.Base.metadata.create_all(bind=engine)
+Base.metadata.create_all(bind=engine)
 app = FastAPI()
 
 # Dependency
@@ -55,7 +56,7 @@ async def get_all_spreads():
     '/alert/',
     summary='Creates an alert for checking the spread of a market'
 )
-async def create_alert(alert: schemas.Alert, db: Session = Depends(get_db)):
+async def create_alert(alert: Alert, db: Session = Depends(get_db)):
     """
     Create an alert with all the information:
 

@@ -1,37 +1,56 @@
 # Desafío Buda
-![Passed Tests](https://img.shields.io/badge/tests-18%20passed%2C%200%20failed-brightgreen) ![version](https://img.shields.io/badge/version-1.0.0-blue)
+![Passed Tests](https://img.shields.io/badge/tests-18%20passed%2C%200%20failed-brightgreen) ![version](https://img.shields.io/badge/version-1.1.0-blue)
 
 Solution developed in Python3.8 by the applicant Javier Valenzuela for the Buda challenge.
-The instructions of the solved problem correspond to [Task 1](https://budapuntocom.notion.site/Spread-API-2fb7f25ef5344d3081c48259da05ae94).
+The instructions for the problem can be found in the following link for the [Task 1](https://budapuntocom.notion.site/Spread-API-2fb7f25ef5344d3081c48259da05ae94).
 
 ## Setup
 
 ### Requirements
-1. Python 3.8.10
-2. Pip
-3. Pipenv
-4. requests 2.28.1
-5. pytest 7.2.0
-6. fastapi
-7. uvicorn
+1. Python >= 3.8.10
+2. Pip >= 20.0.2
+3. Pipenv >= 11.9.0
+4. requests >= 2.28.1
+5. pytest >= 7.2.0
+6. fastapi >= 0.86.0
+7. uvicorn >= 0.19.0
 
 ### Running tests
-Tests are located at `tests` folder. Regular usage should be `pytest tests/<test_filename>.py --log-cli-level=10`.
+Tests are located at `tests` folder. Regular usage should be `pytest tests/<test_filename>.py --log-cli-level=10`
 
-### Starting the raw app
-1. First create a virtual environment, activate it and install the requirements using `pipenv`
+### Run the app
+You can run the application via Docker or manually. For both cases, first clone the repository and move to the main directory.
+```
+git clone git@github.com:tschirnhausen/desafio_buda.git
+cd desafio_buda
+```
+#### Running the application with Docker
+1. Build the `Docker` image
+```
+docker build -t <image_name> .
+```
+2. Create the `container`
+```
+docker run -d -p 5000:5000 <container_name>
+```
+
+#### Starting the app manually
+1. Move your working directory to `app`, where `main.py` is located.
+2. Create a virtual environment, activate it and install the requirements using `pipenv`
 `pipenv shell`
 `pipenv install`
-2. In the main directory, run the following command for run the application
+3. In the current directory, run the following command for run the application
 `uvicorn main:app --reload`
-3. Server is running when you see `Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)` on your console
+4. Server is running when you see `Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)` on your console
+
+See the docs and test the endpoints directly at [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs).
 
 ## Documentation
 
 ### UI Documentation by Swagger UI
-Once the server is running, you can access to the interactive API documentation provided by Swagger UI, by accessing to: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs). You will be able to see the schemas, exceptions, docstrings and parameters types, even try the API without any usage of `Postman` or `curl`.
+Once the server is running, you can access to the interactive API documentation provided by Swagger UI, by accessing to: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs). You will be able to see the schemas, exceptions, docstrings and parameters types, even try the API without any usage of `Postman` or `curl`. This documentation is highly recommended.
 
-### Raw `curl` documentation
+### Regular `curl` documentation
 
 #### Get spread for a market
 
@@ -169,3 +188,4 @@ No parameters required
 
 ## Releases
 - **v1.0.0**: First functional, tested and documented version with all requirements
+- **v1.1.0**: The repository is adapted to be ported with docker. Minor adjustments in the services.
