@@ -85,6 +85,12 @@ async def create_alert(alert: Alert, db: Session = Depends(get_db)):
 async def get_alert_data(alert_id: int, db: Session = Depends(get_db)):
     """
     Get alert data information
+
+    - **alert_data**: Summary of the requested alert
+    - **status**: Tells you if the spread is above or under the alert threshold. 
+        - Possible values: 
+            - fulfill: The condition was fulfilled
+            - pending: The condition is not currently being met.
     """
     try:
         return services.get_alert(db=db, alert_id=alert_id)
