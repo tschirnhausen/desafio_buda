@@ -1,9 +1,10 @@
-from fastapi import FastAPI, Depends
+from fastapi import FastAPI, Depends, HTTPException
 from api import models, schemas
+from api.services import InvalidRequest
 from sqlalchemy.orm import Session
 from database import SessionLocal, engine
 
-import services
+import api.services as services
 
 models.Base.metadata.create_all(bind=engine)
 app = FastAPI()
@@ -25,14 +26,16 @@ async def get_spread_data(currency: str, market: str):
     try:
         ticker_data: dict = services.get_market_spread(currency=currency, market=market)
     except services.InvalidRequest:
-        return {
-            'error': 'market does not exist'
-        }
+        raise HTTPException(
+            status_code=400,
+            detail='Market does not exist'
+        )
     
     return {
         'spread': f'${ticker_data.get("spread")} {ticker_data.get("market").upper()}',
         'market': ticker_data.get("market")
     }
+
 
 @app.get(
     '/spreads/',
@@ -42,10 +45,11 @@ async def get_all_spreads():
     try:
         return services.get_all_markets_spread()
     except Exception as e:
-        return {
-            'error': 'server error',
-            'detail': e
-        }
+        raise HTTPException(
+            status_code=500,
+            detail='Internal error'
+        )
+
 
 @app.post(
     '/alert/',
@@ -55,8 +59,9 @@ async def create_alert(alert: schemas.Alert, db: Session = Depends(get_db)):
     """
     Create an alert with all the information:
 
-    - **type**: select for checking a spread under or above a desired value
-    - **market**: market with format: {currency}-{market}. i.e. btc-clp
+    - **type**: select for checking a spread **under** or **above** a desired value
+    - **currency**: currency of market, i.e. **btc**, **eth**, **usdc**, **ltc**
+    - **market**: market for the selected currency, i.e. **clp**, **pen**, **cop**
     - **spread**: value for the spread
     """
     try:
@@ -65,11 +70,12 @@ async def create_alert(alert: schemas.Alert, db: Session = Depends(get_db)):
             'status': 'created',
             'alert_id': create_alert.id
         }
-    except Exception as e:
-        return {
-                    'error': 'server error',
-                    'detail': e
-                }
+    except InvalidRequest as e:
+        raise HTTPException(
+            status_code=400,
+            detail='Error when creating alert. Be sure that the market exists or use the correct type for the other parameters'
+        )
+
 
 @app.get(
     '/alert/{alert_id}/',
@@ -80,15 +86,9 @@ async def get_alert_data(alert_id: int, db: Session = Depends(get_db)):
     Get alert data information
     """
     try:
-        alert = services.get_alert(db=db, alert_id=alert_id)
-        return {
-            'alert_id': alert.id,
-            'alert_market': alert.market,
-            'alert_spread': alert.spread,
-            'type': alert.type
-        }
-    except Exception as e:
-        return {
-                    'error': 'server error',
-                    'detail': e
-                }
+        return services.get_alert(db=db, alert_id=alert_id)
+    except InvalidRequest:
+        raise HTTPException(
+            status_code=404,
+            detail=f'Alert with id {alert_id} not found'
+        )
