@@ -1,5 +1,8 @@
 from buda import buda
-from typing import List, Tuple
+from typing import List, Tuple, Optional
+from api.schemas import Alert
+from api.models import Alert as AlertModel
+from sqlalchemy.orm import Session
 
 
 class InvalidRequest(Exception):
@@ -50,8 +53,7 @@ def get_market_spread(currency: str, market: str, disable_check: bool = False):
             market_ticker.min_ask[0] - market_ticker.max_bid[0],
             2
         ),
-        'currency': currency,
-        'market': market
+        'market': f'{currency}-{market}'
     }
 
 def get_all_markets_spread() -> List[dict]:
@@ -69,3 +71,17 @@ def get_all_markets_spread() -> List[dict]:
             disable_check=True
         ) for market_data in available_markets
     ]
+
+def create_alert(db: Session, alert: Alert) -> Optional[AlertModel]:
+    db_alert = AlertModel(
+        type=alert.type,
+        market=alert.market,
+        spread=alert.spread
+    )
+    db.add(db_alert)
+    db.commit()
+    db.refresh(db_alert)
+    return db_alert
+
+def get_alert(db: Session, alert_id: int) -> Optional[AlertModel]:
+    return db.query(AlertModel).filter(AlertModel.id == alert_id).first()

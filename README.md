@@ -8,6 +8,8 @@ The instructions of the solved problem correspond to [Task 1](https://budapuntoc
 1. Python 3.8.10
 2. requests 2.28.1
 3. pytest 7.2.0
+4. fastapi
+5. uvicorn
 
 ## Running tests
 Tests are located at `tests` folder. Regular usage should be `pytest tests/<test_filename>.py --log-cli-level=10`.
