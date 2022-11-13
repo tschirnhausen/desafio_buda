@@ -32,7 +32,7 @@ async def get_spread_data(currency: str, market: str):
         )
     
     return {
-        'spread': f'${ticker_data.get("spread")} {ticker_data.get("market").upper()}',
+        'spread': ticker_data.get("spread"),
         'market': ticker_data.get("market")
     }
 
@@ -53,7 +53,7 @@ async def get_all_spreads():
 
 @app.post(
     '/alert/',
-    summary='Creates an alert for checking the spred of a market'
+    summary='Creates an alert for checking the spread of a market'
 )
 async def create_alert(alert: schemas.Alert, db: Session = Depends(get_db)):
     """
