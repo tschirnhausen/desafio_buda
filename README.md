@@ -1,5 +1,5 @@
 # Desafío Buda
-![Passed Tests](https://img.shields.io/badge/tests-10%20passed%2C%200%20failed-brightgreen)
+![Passed Tests](https://img.shields.io/badge/tests-18%20passed%2C%200%20failed-brightgreen)
 
 Solution developed in Python3.8 by the applicant Javier Valenzuela for the Buda challenge.
 The instructions of the solved problem correspond to [Task 1](https://budapuntocom.notion.site/Spread-API-2fb7f25ef5344d3081c48259da05ae94).
