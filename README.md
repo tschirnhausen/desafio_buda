@@ -1,5 +1,5 @@
 # Desafío Buda
-![Passed Tests](https://img.shields.io/badge/tests-18%20passed%2C%200%20failed-brightgreen) ![version](https://img.shields.io/badge/version-1.1.0-orange) ![version](https://img.shields.io/badge/image%20size-261%20MB-blue)
+![Passed Tests](https://img.shields.io/badge/tests-18%20passed%2C%200%20failed-brightgreen) ![version](https://img.shields.io/badge/version-1.1.1-orange) ![version](https://img.shields.io/badge/image%20size-261%20MB-blue)
 
 Solution developed in Python3.8 by the applicant Javier Valenzuela for the Buda challenge.
 The instructions for the problem can be found in the following link for the [Task 1](https://budapuntocom.notion.site/Spread-API-2fb7f25ef5344d3081c48259da05ae94).
@@ -176,7 +176,7 @@ No parameters required
             "market": "btc-clp",
             "target_spread": 500000,
             "type": "above"
-        },
+
         "status": "pending"
     }
 
@@ -189,3 +189,4 @@ No parameters required
 ## Releases
 - **v1.0.0**: First functional, tested and documented version with all requirements
 - **v1.1.0**: The repository is adapted to be ported with docker. Minor adjustments in the services.
+- **v1.1.1**: The size of the Docker image is drastically reduced.
