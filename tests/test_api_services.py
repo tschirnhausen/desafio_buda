@@ -1,5 +1,5 @@
 import pytest
-import services
+import api.services as services
 from buda import buda
 
 def test_get_market_or_exception_format():
