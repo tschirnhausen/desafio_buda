@@ -166,3 +166,6 @@ No parameters required
 | :---:   | :---: | :---: | :---: |
 | status | Indicates whether a threshold has already been reached for a market spread.   | string | **pending**, **fulfill** |
 | alert_data | Summary of the alert   | dict | - |
+
+## Releases
+- **v1.0.0**: First functional, tested and documented version with all requirements
