@@ -197,4 +197,4 @@ No parameters required
 - **v1.0.0**: First functional, tested and documented version with all requirements
 - **v1.1.0**: The repository is adapted to be ported with docker. Minor adjustments in the services
 - **v1.1.1**: The size of the Docker image is drastically reduced
-- **v1.2.0**: TFixed the relative dependences of pytests for running outside Docker without any container running
+- **v1.2.0**: Fixed the relative dependences of pytests for running outside Docker without any container running
