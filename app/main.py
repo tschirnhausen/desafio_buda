@@ -15,7 +15,7 @@ app = FastAPI()
     '/spread/{currency}/{market}/',
     summary='Get spread for a specified market at Buda'
 )
-async def get_spread_data(currency: str, market: str):
+def get_spread_data(currency: str, market: str):
     try:
         ticker_data: dict = services.get_market_spread(currency=currency, market=market)
     except services.InvalidRequest:
@@ -34,7 +34,7 @@ async def get_spread_data(currency: str, market: str):
     '/spreads/',
     summary='Get spreads for all available markets at Buda'
 )
-async def get_all_spreads():
+def get_all_spreads():
     try:
         return services.get_all_markets_spread()
     except Exception as e:
@@ -48,7 +48,7 @@ async def get_all_spreads():
     '/alert/',
     summary='Creates an alert for checking the spread of a market'
 )
-async def create_alert(alert: Alert, db: Session = Depends(get_db)):
+def create_alert(alert: Alert, db: Session = Depends(get_db)):
     """
     Create an alert with all the information:
 
@@ -74,7 +74,7 @@ async def create_alert(alert: Alert, db: Session = Depends(get_db)):
     '/alert/{alert_id}/',
     summary='Get alert information'
 )
-async def get_alert_data(alert_id: int, db: Session = Depends(get_db)):
+def get_alert_data(alert_id: int, db: Session = Depends(get_db)):
     """
     Get alert data information
 
