@@ -63,7 +63,7 @@ async def create_alert(alert: Alert, db: Session = Depends(get_db)):
     - **type**: select for checking a spread **under** or **above** a desired value
     - **currency**: currency of market, i.e. **btc**, **eth**, **usdc**, **ltc**
     - **market**: market for the selected currency, i.e. **clp**, **pen**, **cop**
-    - **spread**: value for the spread
+    - **spread**: positive value for the spread
     """
     try:
         create_alert = services.create_alert(db=db, alert=alert)
