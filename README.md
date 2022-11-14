@@ -33,6 +33,8 @@ docker build -t <image_name> .
 ```
 docker run -d -p 5000:5000 <image_name>
 ```
+See the docs and test the endpoints directly at [http://127.0.0.1:5000/docs](http://127.0.0.1:5000/docs).
+
 
 #### Starting the app manually
 1. Move your working directory to `app`, where `main.py` is located.
@@ -42,8 +44,6 @@ docker run -d -p 5000:5000 <image_name>
 3. In the current directory, run the following command for run the application
 `uvicorn main:app --reload`
 4. Server is running when you see `Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)` on your console
-
-See the docs and test the endpoints directly at [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs).
 
 ## Documentation
 
