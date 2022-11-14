@@ -1,4 +1,4 @@
-# Desafío Buda
+# Buda Challenge: Task 1
 ![Passed Tests](https://img.shields.io/badge/tests-18%20passed%2C%200%20failed-brightgreen) ![version](https://img.shields.io/badge/version-1.2.1-orange) ![docker](https://img.shields.io/badge/image%20size-261%20MB-blue) ![!pylint](https://img.shields.io/badge/code%20style-pylint-black)
 
 Solution developed in Python3.8 by the applicant Javier Valenzuela for the Buda challenge.
