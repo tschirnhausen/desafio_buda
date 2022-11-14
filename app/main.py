@@ -1,23 +1,15 @@
 from fastapi import FastAPI, Depends, HTTPException
-from api.schemas import Alert
-from api.models import Base
-from api.services import InvalidRequest
 from sqlalchemy.orm import Session
-from database import SessionLocal, engine
 
 import api.services as services
+from api.schemas import Alert
+from api.models import Base
+from database import engine
+from utils import get_db
+
 
 Base.metadata.create_all(bind=engine)
 app = FastAPI()
-
-# Dependency
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
-
 
 @app.get(
     '/spread/{currency}/{market}/',
@@ -71,7 +63,7 @@ async def create_alert(alert: Alert, db: Session = Depends(get_db)):
             'status': 'created',
             'alert_id': create_alert.id
         }
-    except InvalidRequest as e:
+    except services.InvalidRequest as e:
         raise HTTPException(
             status_code=400,
             detail='Error when creating alert. Be sure that the market exists or use the correct type for the other parameters'
@@ -94,7 +86,7 @@ async def get_alert_data(alert_id: int, db: Session = Depends(get_db)):
     """
     try:
         return services.get_alert(db=db, alert_id=alert_id)
-    except InvalidRequest:
+    except services.InvalidRequest:
         raise HTTPException(
             status_code=404,
             detail=f'Alert with id {alert_id} not found'
