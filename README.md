@@ -1,5 +1,5 @@
 # Desafío Buda
-![Passed Tests](https://img.shields.io/badge/tests-18%20passed%2C%200%20failed-brightgreen) ![version](https://img.shields.io/badge/version-1.1.1-orange) ![version](https://img.shields.io/badge/image%20size-261%20MB-blue)
+![Passed Tests](https://img.shields.io/badge/tests-18%20passed%2C%200%20failed-brightgreen) ![version](https://img.shields.io/badge/version-1.2.0-orange) ![version](https://img.shields.io/badge/image%20size-261%20MB-blue)
 
 Solution developed in Python3.8 by the applicant Javier Valenzuela for the Buda challenge.
 The instructions for the problem can be found in the following link for the [Task 1](https://budapuntocom.notion.site/Spread-API-2fb7f25ef5344d3081c48259da05ae94).
@@ -7,16 +7,21 @@ The instructions for the problem can be found in the following link for the [Tas
 ## Setup
 
 ### Requirements
-1. Python >= 3.8.10
-2. Pip >= 20.0.2
-3. Pipenv >= 11.9.0
-4. requests >= 2.28.1
-5. pytest >= 7.2.0
-6. fastapi >= 0.86.0
-7. uvicorn >= 0.19.0
+```
+python >= 3.8.10
+pip >= 20.0.2
+pipenv >= 11.9.0
+requests >= 2.28.1
+pytest >= 7.2.0
+fastapi >= 0.86.0
+uvicorn >= 0.19.0
+```
 
 ### Running tests
-Tests are located at `tests` folder. Regular usage should be `pytest tests/<test_filename>.py --log-cli-level=10`
+Tests are located at `tests` folder. Regular usage should be:
+```
+pytest tests/<test_filename>.py --log-cli-level=10
+```
 
 ### Run the app
 You can run the application via Docker or manually. For both cases, first clone the repository and move to the main directory.
@@ -190,5 +195,6 @@ No parameters required
 
 ## Releases
 - **v1.0.0**: First functional, tested and documented version with all requirements
-- **v1.1.0**: The repository is adapted to be ported with docker. Minor adjustments in the services.
-- **v1.1.1**: The size of the Docker image is drastically reduced.
+- **v1.1.0**: The repository is adapted to be ported with docker. Minor adjustments in the services
+- **v1.1.1**: The size of the Docker image is drastically reduced
+- **v1.2.0**: TFixed the relative dependences of pytests for running outside Docker without any container running
