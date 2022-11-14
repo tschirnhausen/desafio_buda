@@ -1,4 +1,5 @@
 import pytest
+
 from buda import buda, exceptions
 from typing import Optional
 
