@@ -31,7 +31,7 @@ docker build -t <image_name> .
 ```
 2. Create the `container`
 ```
-docker run -d -p 5000:5000 <container_name>
+docker run -d -p 5000:5000 <image_name>
 ```
 
 #### Starting the app manually
