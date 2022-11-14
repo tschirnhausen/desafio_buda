@@ -1,5 +1,6 @@
 from enum import Enum
 
+
 class ResponseErrors(Enum):
     generic_error: str = 'not_found'
 

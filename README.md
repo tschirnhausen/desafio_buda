@@ -1,5 +1,5 @@
 # Desafío Buda
-![Passed Tests](https://img.shields.io/badge/tests-18%20passed%2C%200%20failed-brightgreen) ![version](https://img.shields.io/badge/version-1.2.0-orange) ![version](https://img.shields.io/badge/image%20size-261%20MB-blue)
+![Passed Tests](https://img.shields.io/badge/tests-18%20passed%2C%200%20failed-brightgreen) ![version](https://img.shields.io/badge/version-1.2.1-orange) ![docker](https://img.shields.io/badge/image%20size-261%20MB-blue) ![!pylint](https://img.shields.io/badge/code%20style-pylint-black)
 
 Solution developed in Python3.8 by the applicant Javier Valenzuela for the Buda challenge.
 The instructions for the problem can be found in the following link for the [Task 1](https://budapuntocom.notion.site/Spread-API-2fb7f25ef5344d3081c48259da05ae94).
@@ -16,6 +16,15 @@ pytest >= 7.2.0
 fastapi >= 0.86.0
 uvicorn >= 0.19.0
 ```
+
+### Code style
+#### Linter
+This repository uses `pep8` standards using [pylint](https://pypi.org/project/pylint/)
+#### Workflow
+The workflow used is [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
+#### Commits
+Commits convention used is [Conventional Commits v1.0.0](https://www.conventionalcommits.org/en/v1.0.0/)
+
 
 ### Running tests
 Tests are located at `tests` folder. Regular usage should be:
@@ -198,3 +207,4 @@ No parameters required
 - **v1.1.0**: The repository is adapted to be ported with docker. Minor adjustments in the services
 - **v1.1.1**: The size of the Docker image is drastically reduced
 - **v1.2.0**: Fixed the relative dependences of pytests for running outside Docker without any container running
+- **v1.2.1**: Use pep8 with pylint for lint the code

@@ -2,6 +2,7 @@ from pydantic import BaseModel
 from pydantic.types import PositiveFloat
 from api.constants import AlertType
 
+
 class Alert(BaseModel):
     """
     Serializer for Alert model.
