@@ -31,6 +31,31 @@ Tests are located at `tests` folder. Regular usage should be inside the `app` di
 ```
 pytest tests/<test_filename>.py --log-cli-level=10
 ```
+#### Expected output:
+```
+collected 3 items                                                              
+
+tests/test_live_sdk_buda.py ...                                          [100%]
+
+============================== 3 passed in 0.98s ===============================
+```
+
+```
+collected 7 items                                                              
+
+tests/test_api_services.py .......                                       [100%]
+
+============================== 7 passed in 9.02s ===============================
+```
+```
+collected 8 items                                                              
+
+tests/test_api_endpoints_crud.py ........                                [100%]
+
+============================== 8 passed in 9.24s ===============================
+```
+
+
 
 ### Run the app
 You can run the application via Docker or manually. For both cases, first clone the repository and move to the main directory.
