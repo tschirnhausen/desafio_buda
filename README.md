@@ -27,7 +27,7 @@ Commits convention used is [Conventional Commits v1.0.0](https://www.conventiona
 
 
 ### Running tests
-Tests are located at `tests` folder. Regular usage should be:
+Tests are located at `tests` folder. Regular usage should be inside the `app` directory with the following command:
 ```
 pytest tests/<test_filename>.py --log-cli-level=10
 ```
@@ -51,13 +51,16 @@ See the docs and test the endpoints directly at [http://127.0.0.1:5000/docs](htt
 
 
 #### Starting the app manually
-1. Move your working directory to `app`, where `main.py` is located.
-2. Create a virtual environment, activate it and install the requirements using `pipenv`
+1. Create a virtual environment, activate it and install the requirements using `pipenv`
 ```
 pipenv shell
 pipenv install
 ```
-3. In the current directory, run the following command for run the application
+2. Move your working directory to `app`, where `main.py` is located.
+```
+cd app
+```
+4. In the `app` directory, run the following command for run the application
 `uvicorn main:app --reload`
 4. Server is running when you see `Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)` on your console
 
